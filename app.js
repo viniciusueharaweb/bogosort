@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
 app.get("/data", async (req, res) => {
     let number = req.query["number"];
     if (number) {
-        const oi = await bogosortController.applyBogosortAlgorithm(number);
-        res.send({ number: oi });
+        const metrics = await bogosortController.applyBogosortAlgorithm(number);
+        res.send(metrics);
     } else {
         res.status(400).send("'number' query parameter missing");
     }
