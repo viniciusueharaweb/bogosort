@@ -1,3 +1,5 @@
+const { performance } = require("perf_hooks");
+
 exports.applyBogosortAlgorithm = (number) => {
     let randomArray = Array.from({ length: number }, () =>
         Math.floor(Math.random() * 10)
@@ -22,12 +24,18 @@ exports.applyBogosortAlgorithm = (number) => {
 
     let sorted = false;
     let loopCount = 0;
+    const t0 = performance.now();
     while (!sorted) {
-        console.log(loopCount);
         shuffleArray(randomArray);
         sorted = isSorted(randomArray);
         loopCount++;
     }
+    const t1 = performance.now();
+    const elapsedTime = (t1 - t0) / 1000;
 
-    return { interacoes: loopCount, array: randomArray };
+    return {
+        time: elapsedTime,
+        interactions: loopCount,
+        length: number,
+    };
 };
