@@ -6,8 +6,7 @@ const handleClick = () => {
     document.getElementById("arrayLength").textContent = "Calculando...";
 
     const arrayLength = document.getElementById("length").value;
-    console.log(arrayLength);
-    fetch(`/data?number=${arrayLength}`)
+    fetch(`/api?length=${arrayLength}`)
         .then((response) => response.json())
         .then((data) => {
             document.getElementById(
