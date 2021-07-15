@@ -1,7 +1,7 @@
 const { performance } = require("perf_hooks");
 
-exports.applyBogosortAlgorithm = (number) => {
-    let randomArray = Array.from({ length: number }, () =>
+exports.applyBogosortAlgorithm = (length) => {
+    let randomArray = Array.from({ length: length }, () =>
         Math.floor(Math.random() * 10)
     );
 
@@ -36,6 +36,6 @@ exports.applyBogosortAlgorithm = (number) => {
     return {
         time: elapsedTime,
         interactions: loopCount,
-        length: number,
+        length: length,
     };
 };
