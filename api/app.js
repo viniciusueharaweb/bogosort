@@ -10,13 +10,13 @@ app.get("/", (req, res) => {
     res.sendFile("public/index.html", { root: path.dirname(__dirname) });
 });
 
-app.get("/data", async (req, res) => {
-    let number = req.query["number"];
-    if (number) {
-        const metrics = await bogosortController.applyBogosortAlgorithm(number);
+app.get("/api", async (req, res) => {
+    let length = req.query["length"];
+    if (length) {
+        const metrics = await bogosortController.applyBogosortAlgorithm(length);
         res.send(metrics);
     } else {
-        res.status(400).send("'number' query parameter missing");
+        res.status(400).send("'length' query parameter missing");
     }
 });
 
