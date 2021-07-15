@@ -2,7 +2,7 @@ const { performance } = require("perf_hooks");
 
 exports.applyBogosortAlgorithm = (length) => {
     let randomArray = Array.from({ length: length }, () =>
-        Math.floor(Math.random() * 10)
+        Math.floor(Math.random() * 999999)
     );
 
     const isSorted = function (array) {
