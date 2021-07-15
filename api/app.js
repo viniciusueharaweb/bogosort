@@ -11,12 +11,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", async (req, res) => {
-    let length = req.query["length"];
+    const length = Number(req.query["length"]);
+
     if (length) {
         const metrics = await bogosortController.applyBogosortAlgorithm(length);
         res.send(metrics);
+    } else if (!req.query["length"]) {
+        res.status(400).send(
+            "<h1>Para realizar uma chamada sucedida à API, insira o parâmetro URL 'length'</h1>"
+        );
     } else {
-        res.status(400).send("'length' query parameter missing");
+        res.status(400).send(
+            "<h1>Passe um número para o parâmetro URL 'length'</h1>"
+        );
     }
 });
 
