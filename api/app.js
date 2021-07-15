@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 app.get("/api", async (req, res) => {
     const length = Number(req.query["length"]);
 
-    if (length) {
+    if (length && Number.isInteger(length) && length > 0) {
         const metrics = await bogosortController.applyBogosortAlgorithm(length);
         res.send(metrics);
     } else if (!req.query["length"]) {
@@ -22,7 +22,7 @@ app.get("/api", async (req, res) => {
         );
     } else {
         res.status(400).send(
-            "<h1>Passe um número para o parâmetro URL 'length'</h1>"
+            "<h1>Passe um inteiro positivo para o parâmetro URL 'length'</h1>"
         );
     }
 });

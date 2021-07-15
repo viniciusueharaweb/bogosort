@@ -44,9 +44,9 @@ Retorna algumas métricas sobre o algoritmo Bogosort em função do tamanho do a
 
 -   **Parâmetros URL**
 
-| Parâmetro | Tipo     | Descrição                         |
-| :-------- | :------- | :-------------------------------- |
-| `length`  | `número` | **Obrigatório**. Tamanho do array |
+| Parâmetro | Tipo      | Descrição                         |
+| :-------- | :-------- | :-------------------------------- |
+| `length`  | `inteiro` | **Obrigatório**. Tamanho do array |
 
 -   **Respostas bem-sucedidas:**
 
