@@ -1,22 +1,24 @@
+let timeContent = document.getElementById("time");
+let loopContent = document.getElementById("loopcount");
+let arrayContent = document.getElementById("arrayLength");
+
 const handleClick = () => {
-    document.getElementById("time").textContent = "Calculando...";
-
-    document.getElementById("loopcount").textContent = "Calculando...";
-
-    document.getElementById("arrayLength").textContent = "Calculando...";
+    timeContent.textContent = "Calculando...";
+    loopContent.textContent = "Calculando...";
+    arrayContent.textContent = "Calculando...";
 
     const arrayLength = document.getElementById("length").value;
     fetch(`/api?length=${arrayLength}`)
         .then((response) => response.json())
         .then((data) => {
-            document.getElementById(
-                "time"
-            ).textContent = `${data.time} segundos`;
-
-            document.getElementById("loopcount").textContent =
-                data.interactions;
-
-            document.getElementById("arrayLength").textContent = data.length;
+            timeContent.textContent = `${data.time} segundos`;
+            loopContent.textContent = data.interactions;
+            arrayContent.textContent = data.length;
+        })
+        .catch((err) => {
+            timeContent.textContent = "Insira um número inteiro positivo";
+            loopContent.textContent = "Insira um número inteiro positivo";
+            arrayContent.textContent = "Insira um número inteiro positivo";
         });
 };
 document.getElementById("fetch").addEventListener("click", handleClick);
