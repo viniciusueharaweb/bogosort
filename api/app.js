@@ -1,13 +1,11 @@
-var express = require("express");
-var cors = require("cors");
-var app = express();
+const express = require("express");
+const path = require("path");
+const app = express();
 const PORT = 3000;
-const bogosortController = require("./controller/bogosortController");
-
-app.use(cors());
+const bogosortController = require("./controllers/bogosortController");
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile("public/index.html", { root: path.dirname(__dirname) });
 });
 
 app.get("/data", async (req, res) => {
