@@ -36,7 +36,16 @@ Retorna algumas métricas sobre o algoritmo Bogosort em função do tamanho do a
 
 -   **URL**
 
-    /api
+    ```
+    https://arcane-depths-29494.herokuapp.com/api
+    ```
+
+    Local:
+
+    ```
+    localhost:3000/api
+    ```
+ 
 
 -   **Método:**
 
@@ -50,7 +59,7 @@ Retorna algumas métricas sobre o algoritmo Bogosort em função do tamanho do a
 
 -   **Respostas bem-sucedidas:**
 
-```javascript
+```
 {
   "time" : número,
   "interactions" : inteiro,
@@ -66,6 +75,11 @@ O atributo `time` descreve em quanto tempo (em segundos) o algoritmo levou para 
 
 -   **Examplo de Chamada:**
 
-```javascript
+```
+https://arcane-depths-29494.herokuapp.com/api?length=5
+```
+
+Local:
+```
 localhost:3000/api?length=5
 ```
